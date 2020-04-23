@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 #DEBUG = True
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv()) # configuração com decouple
+ALLOWED_HOSTS = [*]#config('ALLOWED_HOSTS', default=[], cast=Csv()) # configuração com decouple
 
 
 # Application definition
