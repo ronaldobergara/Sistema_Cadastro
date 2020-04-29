@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from cadastro.core.views import home
+from cadastro.cad_clientes.views import novo
 
 urlpatterns = [
     path('', home, name='home'),
+    path('novo_cliente/', novo),
     path('admin/', admin.site.urls),
 ]
