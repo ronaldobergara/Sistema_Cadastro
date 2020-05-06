@@ -14,12 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from cadastro.core.views import home
 from cadastro.cad_clientes.views import novo
 
 urlpatterns = [
     path('', home, name='home'),
-    path('novo_cliente/', novo),
+    path('novo_cliente/', include('cadastro.cad_clientes.urls')),
     path('admin/', admin.site.urls),
 ]
