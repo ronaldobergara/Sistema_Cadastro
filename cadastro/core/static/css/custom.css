@@ -6,11 +6,12 @@
     border:0
     }
 
-.custom{
-    margin-top: 1px;
-    margin-left: 1px;
-}
-
 @-ms-viewport {
     width: device-width;
+}
+
+form {
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
 }
