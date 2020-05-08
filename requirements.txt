@@ -16,3 +16,4 @@ wrapt==1.11.2
 gunicorn==19.8.1
 psycopg2==2.7.4
 django_extensions==2.2.9
+django-widget-tweaks==1.4.8
