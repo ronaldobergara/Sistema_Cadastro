@@ -15,5 +15,5 @@ class CadClienteForm(forms.Form):
     endereco        = forms.CharField(label='Endereço:')
     numero          = forms.CharField(label='Numero:')
     uf              = forms.ChoiceField(choices=list_UF,label='UF:')
-    consumidorFinal = forms.BooleanField(label='Consumidor Final')
+    consumidorFinal = forms.BooleanField(label='Consumidor Final', required=False)
     # 

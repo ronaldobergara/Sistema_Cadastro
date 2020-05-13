@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %} Cliente Cadastrado {% endblock title %}
+
+{% block content %}
+
+<h1>Cliente Cadastrado</h1>
+
+<p>Codigo: {{ cad_cliente.pk }}</p>
+<p>CNPJ: {{ cad_cliente.cnpj }}</p>
+<p>Razão Social: {{ cad_cliente.razaoSocial }} </p>
+
+
+{% endblock content %}
