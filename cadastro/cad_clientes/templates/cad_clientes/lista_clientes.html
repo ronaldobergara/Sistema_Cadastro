@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+
+{% block title %} Lista de Clientes {% endblock title %}
+
+{% block content %}
+
+<a href="{% url 'cad_clientes:novo' %}" class="btn btn-dark" role="button" aria-pressed="true">Novo</a>
+<div class="container">
+    
+    <table data-toggle="table" data-search="true" data-show-columns="false">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CNPJ</th>
+                <th>Razão Social</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in lista_clientes  %}
+            <tr id="tr-id-1" class="tr-class-1" data-title="bootstrap table" data-object='{"key": "value"}' >
+                <td>{{ cliente.pk }}</td>
+                <td>{{ cliente.cnpj }}</td>
+                <td>{{ cliente.razaoSocial }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

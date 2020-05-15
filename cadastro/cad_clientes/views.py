@@ -37,3 +37,10 @@ def detail(request, pk):
     return render(request, 'cad_clientes/cad_clientes_detail.html',
                   {'cad_cliente': cadcliente})
    
+
+def ListaClientes(request):
+
+    lista_clientes = CadCliente.objects.all()
+
+    return render(request, 'cad_clientes/lista_clientes.html',
+                  {'lista_clientes': lista_clientes})
