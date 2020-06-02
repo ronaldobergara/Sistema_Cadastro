@@ -61,7 +61,16 @@ def Alteracao(request, pk):
         form = CadClienteForm(instance=cliente)   
         return render(request, 'cad_clientes/cad_clientes_form.html', {'form': form})
 
+def Exclusao(request, pk):
+    cliente = CadCliente.objects.get(pk=pk)
+    
+    if request.method == 'POST':
+        cliente.delete()
+        return HttpResponseRedirect(r('cad_clientes:ListaClientes'))
 
+
+    # form = CadClienteForm(instance=cliente)   
+    return render(request, 'cad_clientes/cad_cliente_confirma_exclusao.html', {'cliente': cliente})    
 
 
 

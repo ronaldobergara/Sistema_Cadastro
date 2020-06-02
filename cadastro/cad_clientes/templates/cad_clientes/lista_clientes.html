@@ -7,8 +7,12 @@
 
 {% block content %}
    
-<div class="container">
+<div class="position-sticky text-center">
+    <h2>Listagem de Clientes</h2>   
+</div>   
 
+<div class="container">
+    
     <table data-toggle="table" data-search="true" data-show-columns="false">
         <thead>
             <tr>
@@ -27,7 +31,7 @@
                 <td>
                     <a href="{% url 'cad_clientes:Alteracao' pk=cliente.pk %}">Alterar</a>
                     /
-                    <a href="#">Deletar</a>
+                    <a href="{% url 'cad_clientes:Exclusao' pk=cliente.pk %}">Deletar</a>
                 </td>
             </tr>
             {% endfor %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %} Cadastro de Clientes {% endblock title %}
+
+{% block content %}
+
+<div class="position-sticky text-center">
+    <h2>Atenção! Cliente será excluido!</h2>   
+</div>   
+
+<div class="container">
+    <h2></h2>
+    <div>
+        <form action="." method="POST">
+            {% csrf_token %}
+            <p>{{ cliente.pk }}</p>
+            <p>{{ cliente.cnpj }}</p>
+            <p>{{ cliente.razaoSocial }}</p>
+        
+            <button type="submit" class="btn btn-primary"  >Confirmar Exclusão</button>
+
+        </form>
+
+
+    </div>
+
+</div>    
+
+
+{% endblock content %}
