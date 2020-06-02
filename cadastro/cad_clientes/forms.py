@@ -1,19 +1,21 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from cadastro.cad_clientes.models import CadCliente
 
 
-list_UF = [('', ''),('AC', 'AC'), ('AL', 'AL'), ('AP', 'AP'), ('AM', 'AM'), ('BA', 'BA'), ('CE', 'CE'), ('DF', 'DF'), 
-           ('ES', 'ES'), ('GO', 'GO'), ('MA', 'MA'), ('MT', 'MT'), ('MS', 'MS'), ('MG', 'MG'), ('PA', 'PA'), 
-           ('PB', 'PB'), ('PR', 'PR'), ('PE', 'PE'), ('PI', 'PI'), ('RJ', 'RJ',), ('RN', 'RN'), ('RS', 'RS'), 
-           ('RO', 'RO'), ('RR', 'RR'), ('SC', 'SC'), ('SP', 'SP'), ('SE', 'SE'), ('TO', 'TO')]
-
-class CadClienteForm(forms.Form):
+class CadClienteFormOld(forms.Form):
     cnpj            = forms.CharField(label='CNPJ:')
     razaoSocial     = forms.CharField(label='Razão Social:')   
     nomeFantasia    = forms.CharField(label='Nome Fantasia:')
     cep             = forms.CharField(label='CEP:')
     endereco        = forms.CharField(label='Endereço:')
     numero          = forms.CharField(label='Numero:')
-    uf              = forms.ChoiceField(choices=list_UF,label='UF:')
+    uf              = forms.ChoiceField(label='UF:')
     consumidorFinal = forms.BooleanField(label='Consumidor Final', required=False)
     # 
+
+class CadClienteForm(forms.ModelForm):
+   # uf = forms.ChoiceField(choices=list_UF,label='UF:')
+    class Meta:
+        model = CadCliente
+        fields = ['cnpj', 'razaoSocial', 'nomeFantasia', 'cep', 'endereco', 'numero', 'uf', 'consumidorFinal']

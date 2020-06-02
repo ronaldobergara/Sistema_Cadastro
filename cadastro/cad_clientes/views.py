@@ -1,4 +1,4 @@
-from django.shortcuts import render, resolve_url as r
+from django.shortcuts import render, resolve_url as r, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
 from cadastro.cad_clientes.forms import CadClienteForm
 from cadastro.cad_clientes.models import CadCliente
@@ -23,7 +23,7 @@ def inclusao(request):
         return render(request, 'cad_clientes/cad_clientes_form.html',
                         {'form': form})
 
-    cadcliente = CadCliente.objects.create(**form.cleaned_data)
+    cadcliente = form.save()
 
     return HttpResponseRedirect(r('cad_clientes:detail', cadcliente.pk))
 
@@ -44,3 +44,25 @@ def ListaClientes(request):
 
     return render(request, 'cad_clientes/lista_clientes.html',
                   {'lista_clientes': lista_clientes})
+
+def Alteracao(request, pk):
+    cliente = CadCliente.objects.get(pk=pk)
+    
+    if request.method == 'POST':
+        form = CadClienteForm(request.POST, instance=cliente)
+
+        if not form.is_valid():
+            return render(request, 'cad_clientes/cad_clientes_form.html',
+                {'form': form})
+
+        form.save()
+        return HttpResponseRedirect(r('cad_clientes:ListaClientes'))
+    else:
+        form = CadClienteForm(instance=cliente)   
+        return render(request, 'cad_clientes/cad_clientes_form.html', {'form': form})
+
+
+
+
+
+             

@@ -20,6 +20,6 @@ from cadastro.cad_clientes.views import novo
 
 urlpatterns = [
     path('', home, name='home'),
-    path('novo_cliente/', include('cadastro.cad_clientes.urls')),
+    path('cliente/', include('cadastro.cad_clientes.urls')),
     path('admin/', admin.site.urls),
 ]
