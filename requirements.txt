@@ -17,3 +17,6 @@ gunicorn==19.8.1
 psycopg2==2.7.4
 django_extensions==2.2.9
 django-widget-tweaks==1.4.8
+# mysqlclient @ file:///D:/workspace/projetos/mysqlclient-1.4.6-cp38-cp38-win32.whl usado para instalar no windows
+# Antes para instalar foi instalado o wheel - pip install wheel, no pip freeze não esta mostrando no windows para adicionar
+# no requirements.txt
