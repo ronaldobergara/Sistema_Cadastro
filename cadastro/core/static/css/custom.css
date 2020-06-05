@@ -19,3 +19,7 @@ form {
 .BtnListClient {
     margin-top: 10px;
 }
+
+.errorlist{
+    color: red;
+}
